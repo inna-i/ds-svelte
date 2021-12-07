@@ -1,71 +1,41 @@
 <script>
 	export let framework;
-	import { Tabs, TabList, TabPanel, Tab } from './Tabs';
-	import Text from './Typography/Text.svelte';
-	import Title from './Typography/Title.svelte';
-	import SubTitle from './Typography/SubTitle.svelte';
+	import { MenuItems, MenuItemsList, MenuPanel, MenuItem } from './SideMenu';
 	import Action from './Action/Action.svelte';
-
-	const textSizes = [
-		'small', 'medium', 'large', 'extra-large'
-	];	
-	const subTitleSizes = [
-		'sub-h3', 'sub-h2', 'sub-h1'
-	];
-	const titleSizes = ['h3', 'h2', 'h1'];
+	import Colors from './Colors/Colors.svelte';
+	import Typography from './storybook/Typography.svelte';
 </script>
 
 <main class="demo">
-	<h1>Design System built with {framework}</h1>
-	<h3 class="demo-sub-title">Components library demo</h3>
+	<header>
+		<h1>Design System built with {framework}</h1>
+		<h3 class="demo-sub-title">Components library demo</h3>
+	</header>
 
+	<MenuItems>
+		<MenuItemsList>
+			<MenuItem>Color</MenuItem>
+			<MenuItem>Typography</MenuItem>
+			<MenuItem>Buttons and Links</MenuItem>
+			<MenuItem>Tutorial Tips Modals</MenuItem>
+		</MenuItemsList>
 
-	<Tabs>
-		<TabList>
-			<Tab>Typography</Tab>
-			<Tab>Color</Tab>
-			<Tab>Buttons and Links</Tab>
-			<Tab>Modals</Tab>
-		</TabList>
-	
-		<TabPanel>
-			<ul class="demo-list">
-				{#each textSizes as size, i}
-					<li>
-						<Text size={size}>
-							This text is <b>{size}</b>
-						</Text>
-					</li>
-				{/each}		
-				{#each subTitleSizes as size, i}
-					<li>
-						<SubTitle hSize={size}>
-							This is sub-title size <b>{size}</b>
-						</SubTitle>
-					</li>
-				{/each}
-				{#each titleSizes as size, i}
-					<li>
-						<Title hSize={size}>
-							This is title size <b>{size}</b>
-						</Title>
-					</li>
-				{/each}
-			</ul>
-		</TabPanel>
-	
-		<TabPanel>
-			Colors will be there
-		</TabPanel>
+			
+		<MenuPanel>
+			<Colors />
+		</MenuPanel>
+		<MenuPanel>
+			<Typography />
+		</MenuPanel>
 
-		<TabPanel>
-			<Action bsType="primary">Click me </Action>
-		</TabPanel>
+		<MenuPanel>
+			<Action bsType="primary" label="Click me" />
+		</MenuPanel>
 	
-		<TabPanel>
+		<MenuPanel>
 			<h2>Modals</h2>
-		</TabPanel>
-	</Tabs>
+		</MenuPanel>
+	</MenuItems>
 
 </main>
 
@@ -85,18 +55,26 @@
 		margin: 0 auto;
 	}
 
+	.demo header {
+		padding: 20px 0;
+		margin-bottom: 15px;
+		border-bottom: 14px solid #ccc;
+		background: #333;
+		color: white;
+	}
 	.demo h1 {
 		padding: 30px 0 20px;
-		color: #ff3e00;
+		color: white;
 		text-transform: uppercase;
-		font-size: 3em;
+		font-size: 2em;
 		font-weight: 100;
 	}
 
 	.demo-sub-title {
 		margin-bottom: 25px;
-		color: gray;
-		font-weight: 300;
+		color: #ccc;
+		font-weight: 200;
+		font-size: 1.2rem;
 		font-style: italic;
 		letter-spacing: 2px;
 	}
@@ -105,14 +83,6 @@
 		.demo {
 			max-width: none;
 		}
-	}
-
-	.demo-list, .demo-list li {
-		list-style-type: none;
-	}
-
-	.demo-list li {
-		border-bottom: 1px solid silver;
 	}
 
 </style>
