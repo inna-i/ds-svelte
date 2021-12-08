@@ -50,4 +50,10 @@
 <style>
      @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css");
 
+     a {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+     }
+
 </style>

@@ -28,6 +28,8 @@ const Template = ({ mouseover, click, ...args }) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-  bsType: 'primary',
+  label: 'Back',
+  bsType: 'ghost',
+  icon: '➔',
   href: 'https://google.com',
 };
